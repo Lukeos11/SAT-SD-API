@@ -1,0 +1,26 @@
+POST http://localhost:80/api/v1/auth
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzEzMWFkOTY2ODM5YTcxMmMxMSIsImlhdCI6MTY4Njg3OTI2MiwiZXhwIjoxNjg5NDcxMjYyfQ.vSDyTiuk6PTraHOjCj0_md_A6syOSW3Q10lOKTqKhes
+
+{
+    "name": "Luke Withington",
+    "email": "lwithington12@gmail.com",
+    "password": "HelloWorld!",
+    "permissions": "Admin"
+}
+
+###
+
+POST http://localhost:80/api/v1/auth/login
+content-type: application/json
+
+{
+    "email": "lwithiwnsddgton12@gmail.com",
+    "password": "HelloWorld!"
+}
+
+###
+
+GET http://localhost:80/api/v1/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiODlkZjZmMzVhMzQ1MjVlMTU5NSIsImlhdCI6MTY4Njg3ODM2NiwiZXhwIjoxNjg5NDcwMzY2fQ.Kxhe7usZMYjzMOIw1JMg8AJn8wcxpCTbMJHuptO4Gtc
+
