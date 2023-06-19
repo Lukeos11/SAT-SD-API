@@ -4,8 +4,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzEzM
 
 {
     "name": "Luke Withington",
-    "email": "lwithington12@gmail.com",
-    "password": "HelloWorld!",
+    "email": "test@test.com",
+    "password": "admin",
     "permissions": "Admin"
 }
 
@@ -15,12 +15,23 @@ POST http://localhost:80/api/v1/auth/login
 content-type: application/json
 
 {
-    "email": "lwithiwnsddgton12@gmail.com",
+    "email": "lwithington12@gmail.com",
     "password": "HelloWorld!"
 }
 
 ###
 
 GET http://localhost:80/api/v1/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiODlkZjZmMzVhMzQ1MjVlMTU5NSIsImlhdCI6MTY4Njg3ODM2NiwiZXhwIjoxNjg5NDcwMzY2fQ.Kxhe7usZMYjzMOIw1JMg8AJn8wcxpCTbMJHuptO4Gtc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
+###
 
+GET http://localhost:80/api/v1/financial/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
+###
+
+GET http://localhost:80/api/v1/financial/getStatus
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
+###
+
+GET http://localhost:80/api/v1/financial/getHistory
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
