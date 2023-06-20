@@ -8,30 +8,38 @@ const user = require('../models/userModel')
 // @access  Private
 
 const addCost = asyncHandler(async (req, res) => {
-  const company = companyDB.findoneById(req.user.companyId)
+  const company = await companyDB.findById(req.user.company)
 
+  if (!req.body.amount) return res.status(400).send({ message: 'Please enter a amount' })
+  if (!req.body.reason) return res.status(400).send({ message: 'Please enter a reason' })
+
+  company.financial = parseFloat(company.financial) - Math.abs(req.body.amount); 
+  company.history.push({ user: req.user.id, amount: req.body.amount, reason: req.body.reason })
+  company.save()
+
+  res.status(200).send({ message: 'Added cost' })
 })
 
 const addSale = asyncHandler(async (req, res) => {
-  const company = companyDB.findoneById(req.user.companyId)
+  const company = await companyDB.findById(req.user.company)
 
+  if (!req.body.amount) return res.status(400).send({ message: 'Please enter a amount' })
+  if (!req.body.reason) return res.status(400).send({ message: 'Please enter a reason' })
+
+  company.financial = parseFloat(company.financial) + Math.abs(req.body.amount); 
+  company.history.push({ user: req.user.id, amount: req.body.amount, reason: req.body.reason })
+  company.save()
+
+  res.status(200).send({ message: 'Added sale' })
 })
 
-const getStatus = asyncHandler(async (req, res) => {
-  const company = companyDB.findById(req.user.companyId)
-  console.log(company.obj)
-  res.status(200).send({ financialStatus: company })
-})
-
-const getHistory = asyncHandler(async (req, res) => {
-  const company = companyDB.findById(req.user.companyId)
-
-  res.status(200).send({ history: company.history })
+const getCompany = asyncHandler(async (req, res) => {
+  const company = await companyDB.findById(req.user.company)
+  res.status(200).send(company)
 })
 
 module.exports = {
   addCost,
   addSale,
-  getStatus,
-  getHistory,
+  getCompany
 }

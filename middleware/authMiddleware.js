@@ -31,4 +31,19 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 })
 
-module.exports = { protect }
+const siteAdminProtect = asyncHandler(async (req, res, next) => {
+  const user = JSON.parse(JSON.stringify(req.user))
+  console.log(user.sitePermissions)
+  if (user && user.sitePermissions.toLowerCase() == "admin") {
+    return next();
+  }
+
+  res.status(401)
+  throw new Error('Not authorized')  
+})
+
+module.exports = { protect, siteAdminProtect }
+
+
+
+"{\"_id\":\"648bbc351ad966839a712c16\",\"name\":\"Luke Withington\",\"email\":\"lwithington12@gmail.com\",\"permissions\":\"Admin\",\"company\":\"648bb63116e3373b0846c6b0\",\"createdAt\":\"2023-06-16T01:34:45.957Z\",\"updatedAt\":\"2023-06-16T01:34:45.957Z\",\"__v\":0,\"sitePermissions\":\"Admin\"}"

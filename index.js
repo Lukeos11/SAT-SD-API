@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 
 app.use("/api/v1/auth", require('./routes/userRoutes'));
 app.use("/api/v1/financial", require('./routes/financialRoutes'));
+app.use("/api/v1/company", require('./routes/companyRoutes'));
 
 app.use(errorHandler);
 
