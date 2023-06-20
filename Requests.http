@@ -25,13 +25,56 @@ GET http://localhost:80/api/v1/auth/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
 ###
 
-GET http://localhost:80/api/v1/financial/
+GET http://localhost:80/api/v1/financial/getCompany
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
 ###
 
-GET http://localhost:80/api/v1/financial/getStatus
+POST http://localhost:80/api/v1/financial/addCost
+content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
+
+{
+    "amount": "1",
+    "reason": "dev test"
+}
+
 ###
 
-GET http://localhost:80/api/v1/financial/getHistory
+POST http://localhost:80/api/v1/financial/addSale
+content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
+
+{
+    "amount": "1",
+    "reason": "dev test"
+}
+
+###
+
+POST http://localhost:80/api/v1/company/addCompany
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
+
+{
+    "name": "Development",
+    "adminName": "Admin",
+    "adminEmail": "admin@admin.com",
+    "adminPassword": "Admin"
+}
+
+###
+
+DELETE http://localhost:80/api/v1/company/deleteCompany
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
+
+{
+    "companyId": "6491057e096eb121aeb2ff4a"
+}
+
+###
+
+GET http://localhost:80/api/v1/company/getCompanyByUser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGJiYzM1MWFkOTY2ODM5YTcxMmMxNiIsImlhdCI6MTY4NzE0MjU5MSwiZXhwIjoxNjg3NzQ3MzkxfQ.3ZilxINqG_dyqHIAxCduPx0WvRNQWp1skHn1KbCdWYc
+
+###
