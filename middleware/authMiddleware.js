@@ -9,10 +9,6 @@ const protect = asyncHandler(async (req, res, next) => {
     try {
       token = req.headers.authorization.split(' ')[1]
 
-      if (token.startsWith("token...")) {
-        return next()
-      }
-
       const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
       req.user = await User.findById(decoded.id).select('-password')
@@ -32,8 +28,7 @@ const protect = asyncHandler(async (req, res, next) => {
 })
 
 const siteAdminProtect = asyncHandler(async (req, res, next) => {
-  const user = JSON.parse(JSON.stringify(req.user))
-  console.log(user.sitePermissions)
+  const user = JSON.parse(JSON.stringify(req.user)) // idk why but doesnt work otherwise
   if (user && user.sitePermissions.toLowerCase() == "admin") {
     return next();
   }
