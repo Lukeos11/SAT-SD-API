@@ -72,8 +72,6 @@ const deleteCompany = asyncHandler(async (req, res) => {
 
   const users = await user.deleteMany({ company: req.body.companyId })
 
-  console.log(users)
-
   res.status(200).send({ message: 'Completed', company, users })
 })
 
