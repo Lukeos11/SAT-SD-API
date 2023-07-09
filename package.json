@@ -4,6 +4,8 @@
   "description": "The API to run my software development program for the backend.",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,8 +18,11 @@
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
+    "fs": "^0.0.1-security",
+    "https": "^1.0.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.4",
+    "morgan": "^1.10.0",
     "mysql2": "^3.3.4"
   },
   "devDependencies": {

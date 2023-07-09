@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+// Define a new schema
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -29,4 +30,5 @@ const userSchema = mongoose.Schema(
   }
 )
 
+// Create a new model with the generated schema
 module.exports = mongoose.model('User', userSchema)
