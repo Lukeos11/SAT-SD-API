@@ -43,7 +43,7 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password: hashedPassword,
     company: companyId,
-    permissions,
+    permissions: permissions || "User",
   })
 
   // If the creation was successful
